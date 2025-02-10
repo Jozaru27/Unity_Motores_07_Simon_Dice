@@ -6,13 +6,13 @@ using UnityEngine.UI;
 public class BotonManager : MonoBehaviour
 {
 
-    public string colorBoton;
+    public string colorBoton; 
     private GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        gameManager = FindObjectOfType<GameManager>(); // Busca el GameManager
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     // Update is called once per frame
@@ -20,11 +20,26 @@ public class BotonManager : MonoBehaviour
     {
         
     }
-    public void OnBotonPulsado()
+
+
+    // Para botones de colores
+    public void OnBotonColorClick()
     {
         if (gameManager != null)
         {
-            gameManager.RegistrarPulsacion(colorBoton); // Envía el color del botón al GameManager
+            gameManager.RegistrarPulsacion(colorBoton);
+            Debug.Log("BotÃ³n pulsado: " + colorBoton);
+        }
+    }
+
+
+    // Para el botÃ³n "Terminar"
+    public void OnBotonTerminarClick()
+    {
+        if (gameManager != null)
+        {
+            gameManager.MostrarSecuencia();
+            gameManager.IniciarMostrarSecuencia();
         }
     }
 }
